@@ -18,5 +18,13 @@ if(navigator.geolocation){
     const map = L.map("map").setView([0,0], 10);
 
     L.tileLayer("https://{s}.title.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "OpenStreetMap"
+        attribution: "Abhishek Singh Rautela"
     }) .addTo(map)
+
+    const markers = {};
+
+    socket.on("recieve-location", (data)=> {
+        const {id, latitude, longitude} = data;
+        map.setView([latitude, longitude])
+    })
+
