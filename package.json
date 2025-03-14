@@ -1,0 +1,25 @@
+{
+  "name": "real-time-tracker-backend",
+  "version": "1.0.0",
+  "description": "Build a Realtime Device Tracker Map with node.js express and socket.io, maps and Leaflet",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rautela-abhiishek/real-time-tracker-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rautela-abhiishek/real-time-tracker-backend/issues"
+  },
+  "homepage": "https://github.com/rautela-abhiishek/real-time-tracker-backend#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
