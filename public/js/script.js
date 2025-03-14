@@ -15,7 +15,7 @@ if(navigator.geolocation){
     }
 );
     }
-    const map = L.map("map").setView([0,0], 10);
+    const map = L.map("map").setView([0,0], 16);
 
     L.tileLayer("https://{s}.title.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "Abhishek Singh Rautela"
@@ -25,6 +25,19 @@ if(navigator.geolocation){
 
     socket.on("recieve-location", (data)=> {
         const {id, latitude, longitude} = data;
-        map.setView([latitude, longitude])
-    })
+        map.setView([latitude, longitude]);
+        if(markers[id]){
+            marker[id].setLatLng([latitude, longitude]);
+        }
+        else{
+            markers[id] = L.marker([latitude, longitude]).addTo(map);
+        }
+    });
 
+    socket.on("user-disconnect", (id) => {
+        if(markers[id]){
+            map.removeLayer(markers[id]);
+            delete markers[id];
+        }
+
+    });
